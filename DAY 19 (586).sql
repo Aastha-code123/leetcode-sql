@@ -1,0 +1,22 @@
+-- 586. Customer Placing the Largest Number of Orders
+
+-- Write a solution to find the customer_number for the customer who has placed the largest number of orders.
+
+-- The test cases are generated so that exactly one customer will have placed more orders than any other customer.
+
+CREATE TABLE Orders (
+    order_number INT,
+    customer_number INT
+);
+
+INSERT INTO Orders (order_number, customer_number) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 3);
+
+SELECT customer_number
+FROM Orders
+GROUP BY customer_number
+ORDER BY COUNT(*) DESC
+LIMIT 1;
